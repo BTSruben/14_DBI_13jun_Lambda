@@ -30,6 +30,7 @@ services:
             KAFKA_ADVERTISED_HOST_NAME: kafka
             KAFKA_ADVERTISED_PORT: 9092
             KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+            KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://${PUBLIC_NAME}:9092"
             KAFKA_CREATE_TOPICS: "Topic1:1:1,Topic2:1:1"
         networks:
             - lampda-network
