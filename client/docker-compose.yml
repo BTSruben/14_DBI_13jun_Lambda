@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+    spark:
+        build: ../spark_docker
+        container_name: spark
+        expose:
+            - 4040
+        ports:
+            - 4040:4040
+        environment:
+            SPARK_PUBLIC_DNS: spark
+        networks:
+            - client-lampda-network
+
+    sensor:
+        build: ../sensor_docker
+        tty: true
+        networks:
+            - client-lampda-network
+
+networks:
+    client-lampda-network:
+        driver: bridge
